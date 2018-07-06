@@ -102,6 +102,16 @@ tcp        0      0 172.18.0.4:8032         0.0.0.0:*               LISTEN      
 #### 2. Listen to ports that related to dedicated processes
 | Daemon        | Default Port  |     Protocol       |    Used For    |
 | ------------- |---------------| ------------------ | -------------- |
-| Namenode      | 8020          |IPC: ClientProtocol |  Filesystem metadata operations |
-| Datanode      | 50010         |Custom Hadoop Receiver: Datanode and DFSClient | DFS data transfer |
-| Datanode      | 50020         |IPC: InterDatanodeProtocol, ClientDatanodeProtocol | Block metadata operations and recovery |
+| Namenode      | 8020          |IPC: `ClientProtocol` |  Filesystem metadata operations |
+| Datanode      | 50010         |Custom Hadoop Receiver: `Datanode` and `DFSClient` | DFS data transfer |
+| Datanode      | 50020         |IPC: `InterDatanodeProtocol`, `ClientDatanodeProtocol` | Block metadata operations and recovery |
+
+run tcpdump to capture packets while the application (wordcount) is running.
+```
+$sudo docker exec -it hadoop-master bash
+#tcpdump -i eth0 "port 50010" -X > port-50010.txt
+```
+output
+```
+the "port-50010.txt" file in the working directory
+```
