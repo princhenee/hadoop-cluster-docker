@@ -90,15 +90,19 @@ netstat -plten | grep java
 ```
 **output**
 ```
-tcp        0      0 172.18.0.4:8033         0.0.0.0:*               LISTEN      0
- 57506172    619/java
-tcp        0      0 172.18.0.4:9000         0.0.0.0:*               LISTEN      0
- 57498947    199/java
-tcp        0      0 0.0.0.0:50090           0.0.0.0:*               LISTEN      0
- 57489721    420/java
+tcp        0      0 172.18.0.4:8033         0.0.0.0:*               LISTEN      0          57506172    619/java
+tcp        0      0 172.18.0.4:9000         0.0.0.0:*               LISTEN      0          57498947    199/java
+tcp        0      0 0.0.0.0:50090           0.0.0.0:*               LISTEN      0          57489721    420/java
 tcp        0      0 0.0.0.0:50070           0.0.0.0:*               LISTEN      0          57498944    199/java
 tcp        0      0 172.18.0.4:8088         0.0.0.0:*               LISTEN      0          57482952    619/java
 tcp        0      0 172.18.0.4:8030         0.0.0.0:*               LISTEN      0          57368571    619/java
 tcp        0      0 172.18.0.4:8031         0.0.0.0:*               LISTEN      0          57368565    619/java
 tcp        0      0 172.18.0.4:8032         0.0.0.0:*               LISTEN      0          57368575    619/java
 ```
+
+#### 2. Listen to ports that related to dedicated processes
+| Daemon        | Default Port  |     Protocol       |    Used For    |
+| ------------- |---------------| ------------------ | -------------- |
+| Namenode      | 8020          |IPC: ClientProtocol |  Filesystem metadata operations |
+| Datanode      | 50010         |Custom Hadoop Receiver: Datanode and DFSClient | DFS data transfer |
+| Datanode      | 50020         |IPC: InterDatanodeProtocol, ClientDatanodeProtocol | Block metadata operations and recovery |
