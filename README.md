@@ -1,10 +1,9 @@
 ## Run Hadoop Cluster within Docker Containers
 
 - Blog: [Run Hadoop Cluster in Docker Update](http://kiwenlau.com/2016/06/26/hadoop-cluster-docker-update-english/)
-- 博客: [基于Docker搭建Hadoop集群之升级版](http://kiwenlau.com/2016/06/12/160612-hadoop-cluster-docker-update/)
 
 
-![alt tag](https://raw.githubusercontent.com/kiwenlau/hadoop-cluster-docker/master/hadoop-cluster-docker.png)
+![alt tag](https://raw.githubusercontent.com/princhenee/hadoop-cluster-docker/master/hadoop-cluster-docker.png)
 
 
 ### 3 Nodes Hadoop Cluster
@@ -57,21 +56,6 @@ root@hadoop-master:~#
 ./run-wordcount.sh
 ```
 
-**output**
-
-```
-input file1.txt:
-Hello Hadoop
-
-input file2.txt:
-Hello Docker
-
-wordcount output:
-Docker    1
-Hadoop    1
-Hello    2
-```
-
 ### Arbitrary size Hadoop cluster
 
 ##### 1. pull docker images and clone github repository
@@ -98,3 +82,23 @@ sudo ./start-container.sh 5
 
 do 5~6 like section A
 
+### Hadoop Cluster Monitor
+#### 1. When the cluster is running, execute to check tcp connections established by
+java processes alive:
+```
+netstat -plten | grep java
+```
+**output**
+```
+tcp        0      0 172.18.0.4:8033         0.0.0.0:*               LISTEN      0
+ 57506172    619/java
+tcp        0      0 172.18.0.4:9000         0.0.0.0:*               LISTEN      0
+ 57498947    199/java
+tcp        0      0 0.0.0.0:50090           0.0.0.0:*               LISTEN      0
+ 57489721    420/java
+tcp        0      0 0.0.0.0:50070           0.0.0.0:*               LISTEN      0          57498944    199/java
+tcp        0      0 172.18.0.4:8088         0.0.0.0:*               LISTEN      0          57482952    619/java
+tcp        0      0 172.18.0.4:8030         0.0.0.0:*               LISTEN      0          57368571    619/java
+tcp        0      0 172.18.0.4:8031         0.0.0.0:*               LISTEN      0          57368565    619/java
+tcp        0      0 172.18.0.4:8032         0.0.0.0:*               LISTEN      0          57368575    619/java
+```
