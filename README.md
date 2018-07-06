@@ -1,12 +1,12 @@
 ## Run Hadoop Cluster within Docker Containers
 
-- Blog: [Run Hadoop Cluster in Docker Update](http://kiwenlau.com/2016/06/26/hadoop-cluster-docker-update-english/)
+- Reference: [Run Hadoop Cluster in Docker Update](http://kiwenlau.com/2016/06/26/hadoop-cluster-docker-update-english/)
 
 
-![alt tag](https://raw.githubusercontent.com/princhenee/hadoop-cluster-docker/master/hadoop-cluster-docker.png)
+![alt tag](https://raw.githubusercontent.com/princhenee/hadoop-cluster-docker/master/hadoop_cluster_docker.pdf)
 
 
-### 3 Nodes Hadoop Cluster
+### Tri-Nodes Hadoop Cluster
 
 ##### 1. pull docker image
 
@@ -17,7 +17,7 @@ sudo docker pull kiwenlau/hadoop:1.0
 ##### 2. clone github repository
 
 ```
-git clone https://github.com/kiwenlau/hadoop-cluster-docker
+git clone https://github.com/princhenee/hadoop-cluster-docker
 ```
 
 ##### 3. create hadoop network
@@ -83,8 +83,7 @@ sudo ./start-container.sh 5
 do 5~6 like section A
 
 ### Hadoop Cluster Monitor
-#### 1. When the cluster is running, execute to check tcp connections established by
-java processes alive:
+#### 1. When the cluster is running, execute to check tcp connections established by java processes alive:
 ```
 netstat -plten | grep java
 ```
