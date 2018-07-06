@@ -3,7 +3,7 @@
 - Reference: [Run Hadoop Cluster in Docker Update](http://kiwenlau.com/2016/06/26/hadoop-cluster-docker-update-english/)
 
 
-![alt tag](https://raw.githubusercontent.com/princhenee/hadoop-cluster-docker/master/hadoop_cluster_docker.pdf)
+![alt tag](https://raw.githubusercontent.com/princhenee/hadoop-cluster-docker/master/hadoop_cluster_topo.pdf)
 
 
 ### Tri-Nodes Hadoop Cluster
