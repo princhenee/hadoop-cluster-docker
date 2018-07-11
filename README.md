@@ -115,3 +115,15 @@ output
 ```
 the "port-50010.txt" file in the working directory
 ```
+
+
+### Hadoop I/O
+#### Serialization
+
+Serialization is the process of turning structured objects into a byte stream for transmission over a network or for writing to persistent storage. Deserialization is the reverse process of turning a byte stream back into a series of structured objects.
+
+In Hadoop, interprocess communication between nodes in the system is implemented using remote procedure calls (RPCs). The RPC protocol uses serialization to render the message into a binary stream to be sent to the remote node, which then deserializes the binary stream into the original message.
+
+Hadoop uses its own serialization format, Writables, which is certainly compact and fast, but not so easy to extend or use from languages other than Java. Writables are central to Hadoop as most MapReduce programs use them for their key and value types.
+
+![alt tag](https://raw.githubusercontent.com/princhenee/hadoop-cluster-docker/master/hadoop_writable_hierarchy.png)
