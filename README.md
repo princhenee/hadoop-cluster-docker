@@ -127,3 +127,29 @@ In Hadoop, interprocess communication between nodes in the system is implemented
 Hadoop uses its own serialization format, Writables, which is certainly compact and fast, but not so easy to extend or use from languages other than Java. Writables are central to Hadoop as most MapReduce programs use them for their key and value types.
 
 ![alt tag](https://raw.githubusercontent.com/princhenee/hadoop-cluster-docker/master/hadoop_writable_hierarchy.png)
+
+
+### DAIET tests
+Repeat the [DAIET](https://github.com/AmedeoSapio/DAIET) emulations with behavior-model (bmv2). The topology is a ToR with 13 servers, where 12 are workers and 1 is master. Tests have 24 mappers and 12 reducers.
+
+#### Without DAIET
+```
+Reduce Time:
+
+2018-07-17 02:06:07 INFO  TaskTrackerReducerWorker:120 - ## REDUCERTIME #26:4782
+2018-07-17 02:06:08 INFO  TaskTrackerReducerWorker:120 - ## REDUCERTIME #33:4214
+2018-07-17 02:06:08 INFO  TaskTrackerReducerWorker:120 - ## REDUCERTIME #29:4303
+2018-07-17 02:06:05 INFO  TaskTrackerReducerWorker:120 - ## REDUCERTIME #24:5877
+2018-07-17 02:06:07 INFO  TaskTrackerReducerWorker:120 - ## REDUCERTIME #30:4613
+2018-07-17 02:06:07 INFO  TaskTrackerReducerWorker:120 - ## REDUCERTIME #32:4828
+2018-07-17 02:06:05 INFO  TaskTrackerReducerWorker:120 - ## REDUCERTIME #25:5750
+2018-07-17 02:06:07 INFO  TaskTrackerReducerWorker:120 - ## REDUCERTIME #28:4376
+2018-07-17 02:06:06 INFO  TaskTrackerReducerWorker:120 - ## REDUCERTIME #35:5175
+2018-07-17 02:06:08 INFO  TaskTrackerReducerWorker:120 - ## REDUCERTIME #31:4235
+2018-07-17 02:06:07 INFO  TaskTrackerReducerWorker:120 - ## REDUCERTIME #27:4992
+2018-07-17 02:06:08 INFO  TaskTrackerReducerWorker:120 - ## REDUCERTIME #34:4619
+```
+
+#### With DAIET
+```
+```
